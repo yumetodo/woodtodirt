@@ -25,31 +25,31 @@ local modname = "woodtodirt"
 -- New Crafting items
 --
 
-minetest.register_craftitem(":woodtodirt:ashes", {
+minetest.register_craftitem("woodtodirt:ashes", {
         description = "ashes",
-        inventory_image = "ash.png",
+        inventory_image = "woodtodirt_ash.png",
 })
-minetest.register_craftitem(":woodtodirt:stone_dust", {
+minetest.register_craftitem("woodtodirt:stone_dust", {
         description = "Stone Dust",
-        inventory_image = "stone_dust.png",
+        inventory_image = "woodtodirt_stone_dust.png",
 })
-minetest.register_craftitem(":woodtodirt:sand_dust", {
+minetest.register_craftitem("woodtodirt:sand_dust", {
         description = "Stone Dust",
-        inventory_image = "sand_dust.png",
+        inventory_image = "woodtodirt_sand_dust.png",
 })
-minetest.register_craftitem(":woodtodirt:stone_hummer", {
+minetest.register_craftitem("woodtodirt:stone_hummer", {
         description = "Stone Hummer",
-        inventory_image = "stone_hummer.png",
+        inventory_image = "woodtodirt_stone_hummer.png",
 })
-minetest.register_craftitem(":woodtodirt:splitted_stick", {
+minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
-        inventory_image = "splitted_stick.png",
+        inventory_image = "woodtodirt_splitted_stick.png",
 })
 
 --
 -- register compblock
 --
-register_compblock("default:cobble", 4, false, true)
+register_compblock("cobble", 4, false, true)
 register_compblock_by_group("leaves", "default:pine_needles", 3, true, false)
 
 --
@@ -80,7 +80,7 @@ minetest.register_craft({
 ------------------------------------------
 --------       Craft Recipe       --------
 ------------------------------------------
-Stick　-> splitted stick x 4
+Stick -> splitted stick x 4
 
 Cobblestone	Cobblestone	Cobblestone
 Cobblestone	Cobblestone	Cobblestone	->	Compressed Cobblestone (1)
@@ -156,7 +156,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_craft({
-	output = "woodtodirt:sand_dust　4",
+	output = "woodtodirt:sand_dust 4",
 	recipe = {{"default:sand"}}
 })
 minetest.register_craft({
@@ -192,7 +192,7 @@ minetest.register_craft({
 	},
 })
 
-if minetest.get_modpath("moreblocks") ~= nil then--moreblocks has Compressed Cobblestone
+if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobblestone
 	minetest.register_craft({
 		output = "comp_blocks:cobble_2",
 		recipe = {
@@ -202,7 +202,7 @@ if minetest.get_modpath("moreblocks") ~= nil then--moreblocks has Compressed Cob
 		},
 	})
 	minetest.register_craft({
-		output = "woodtodirt:sand_dust　4",
+		output = "woodtodirt:sand_dust 4",
 		recipe = {{"default:sand"}}
 	})
 	minetest.register_craft({
