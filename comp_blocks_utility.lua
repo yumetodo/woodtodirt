@@ -86,7 +86,7 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		return
 	end
 
-	local nodename = "comp_blocks:"..recipe:split(":")[2]--"[namespace]:[node name]"から[node name]をとりだす
+	local nodename = recipe:split(":")[2]--"[namespace]:[node name]"から[node name]をとりだす
 	for i = 1, max_comp_level do--Cならfor(int i = 1, i < =4; ++i)
 		--
 		-- node登録
