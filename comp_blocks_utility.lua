@@ -68,6 +68,7 @@ end
 @param max_comp_level 圧縮のレベル。1以上。
 @param is_center_null 中央空白の8個圧縮のレシピにするか(true)否か(false)
 @param do_decompress_flag trueで解凍レシピ追加、falseで追加しない
+@param group minetest.register_nodeに指定するgroupのtable。{}を推奨
 @detail
 
 
@@ -79,7 +80,7 @@ end
 register_compblock("default:acacia_tree", 4, false, true)
 @endcode
 ]]
-function register_compblock(recipe, max_comp_level, is_center_null, do_decompress_flag)
+function register_compblock(recipe, max_comp_level, is_center_null, do_decompress_flag, group)
 	local recipe_def = minetest.registered_nodes[recipe]--recipeデータの取得
 
 	if not recipe_def then
@@ -98,6 +99,7 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
+		def.groups = group--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
@@ -125,7 +127,7 @@ end
 register_compblock_by_group("leaves", "default:pine_needles", 4, false, true)
 @endcode
 ]]
-function register_compblock_by_group(group_name, base_node, max_comp_level, is_center_null, do_decompress_flag)
+function register_compblock_by_group(group_name, base_node, max_comp_level, is_center_null, do_decompress_flag, group)
 	if 0 == minetest.get_item_group(base_node, group_name) then
 		print("comp_blocks_utility.lua: In function `register_compblock_by_group`, "..base_node.." is not related with `group:"..group_name.."`.")
 		return
@@ -146,7 +148,7 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 		def.description = register_compblock_impl_make_new_description(group_name, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
 		def.drop = new_nodename
-		def.groups = {}--comp_blocksはグループから外す
+		def.groups = group--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録

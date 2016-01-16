@@ -49,8 +49,8 @@ minetest.register_craftitem("woodtodirt:splitted_stick", {
 --
 -- register compblock
 --
-register_compblock("default:cobble", 4, false, true)
-register_compblock_by_group("leaves", "default:pine_needles", 3, true, false)
+register_compblock("default:cobble", 4, false, true, {})
+register_compblock_by_group("leaves", "default:pine_needles", 3, true, false, {})
 
 --
 -- Cooking recipes
