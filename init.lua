@@ -25,23 +25,23 @@ local modname = "woodtodirt"
 -- New Crafting items
 --
 
-minetest.register_craftitem(":woodtodirt:ashes", {
+minetest.register_craftitem("woodtodirt:ashes", {
         description = "ashes",
         inventory_image = "ash.png",
 })
-minetest.register_craftitem(":woodtodirt:stone_dust", {
+minetest.register_craftitem("woodtodirt:stone_dust", {
         description = "Stone Dust",
         inventory_image = "stone_dust.png",
 })
-minetest.register_craftitem(":woodtodirt:sand_dust", {
+minetest.register_craftitem("woodtodirt:sand_dust", {
         description = "Stone Dust",
         inventory_image = "sand_dust.png",
 })
-minetest.register_craftitem(":woodtodirt:stone_hummer", {
+minetest.register_craftitem("woodtodirt:stone_hummer", {
         description = "Stone Hummer",
         inventory_image = "stone_hummer.png",
 })
-minetest.register_craftitem(":woodtodirt:splitted_stick", {
+minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
         inventory_image = "splitted_stick.png",
 })
