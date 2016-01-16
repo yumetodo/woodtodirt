@@ -14,7 +14,7 @@ License for code:
 @return 生成された名前。
 ]]
 function register_compblock_impl_make_new_description(base_description, is_center_null, comp_level)
-	return is_center_null and 8^comp_level.."Compressed "..base_description or "Compressed "..base_description.." ("..comp_level..")"
+	return is_center_null and 8^comp_level.."x Compressed "..base_description or "Compressed "..base_description.." ("..comp_level..")"
 end
 --[[
 @brief is_center_nullによってnode名を作り分ける
