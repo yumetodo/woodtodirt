@@ -6,9 +6,6 @@ Copyright (c) 2015 yumetodo <yume-wikijp@live.jp>
 
 Version: 1.0
 
-Recomended: charcoal
-https://forum.minetest.net/viewtopic.php?f=11&t=3971
-
 License for code:
 MIT License
 (http://opensource.org/licenses/mit-license.php)
@@ -127,16 +124,6 @@ group:Leaves	group:Leaves	group:Leaves
 512x Compressed Leaves	ashes		512x Compressed Leaves	->	Dirt x 9
 512x Compressed Leaves	Sand Dust	512x Compressed Leaves
 
-:comp_blocks:[元アイテムの名前]_[8^i]x
-comp_blocks:leaves_64x
-comp_blocks:leaves_512x
-default:cobble
-default:stick
-default:sand
-default:dirt
-moreblocks:cobble_compressed
-comp_blocks:cobble_1
-default:pine_needles
 ]]
 minetest.register_craft({
 	output = "woodtodirt:splitted_stick 4",
