@@ -140,6 +140,10 @@ default:pine_needles
 ]]
 minetest.register_craft({
 	output = "woodtodirt:splitted_stick 4",
+	recipe = {{"moreblocks:jungle_stick"}}
+})
+minetest.register_craft({
+	output = "woodtodirt:splitted_stick 4",
 	recipe = {{"default:stick"}}
 })
 minetest.register_craft({
