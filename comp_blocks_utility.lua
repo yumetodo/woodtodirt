@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 License for code:
   Copyright (C) 2016 yumetodo <yume-wikijp@live.jp>
   https://github.com/yumetodo/woodtodirt
