@@ -29,6 +29,56 @@ none.
 - [Craft Guide](https://forum.minetest.net/viewtopic.php?t=2334)
 - [Unified Inventory](https://forum.minetest.net/viewtopic.php?t=3933)
 
+## Minimal Craft Recipe
+
+if you want to know everthing, watch ``init.lua`` or Use Craft Guide.
+
+```
+Stick -> splitted stick x 4
+
+Cobblestone	Cobblestone	Cobblestone
+Cobblestone	Cobblestone	Cobblestone	->	Compressed Cobblestone (1)
+Cobblestone	Cobblestone	Cobblestone
+
+Compressed Cobblestone (1) -> Cobblestone x 9
+
+Compressed Cobblestone (1)	Compressed Cobblestone (1)	Compressed Cobblestone (1)
+Compressed Cobblestone (1)	splitted stick				Compressed Cobblestone (1)	->	StoneHummer
+							splitted stick
+
+Cobblestone
+StoneHummer	->	Cobblestone Dust x 4
+
+Sand	->	Sand Dust x 4
+
+group:Leaves	group:Leaves	group:Leaves
+group:Leaves					group:Leaves	->	8x Compressed Leaves
+group:Leaves	group:Leaves	group:Leaves
+
+8x Compressed Leaves	8x Compressed Leaves	8x Compressed Leaves
+8x Compressed Leaves							8x Compressed Leaves	->	64x Compressed Leaves
+8x Compressed Leaves	8x Compressed Leaves	8x Compressed Leaves
+
+64x Compressed Leaves	64x Compressed Leaves	64x Compressed Leaves
+64x Compressed Leaves							64x Compressed Leaves	->	512x Compressed Leaves
+64x Compressed Leaves	64x Compressed Leaves	64x Compressed Leaves
+
+64x Compressed Leaves	ashes				64x Compressed Leaves
+64x Compressed Leaves	Cobblestone Dust	64x Compressed Leaves	->	Dirt
+64x Compressed Leaves	ashes				64x Compressed Leaves
+
+64x Compressed Leaves	ashes		64x Compressed Leaves
+64x Compressed Leaves	Sand Dust	64x Compressed Leaves	->	Dirt
+64x Compressed Leaves	ashes		64x Compressed Leaves
+
+512x Compressed Leaves	Cobblestone Dust	512x Compressed Leaves
+512x Compressed Leaves	ashes				512x Compressed Leaves	->	Dirt x 8
+512x Compressed Leaves	Cobblestone Dust	512x Compressed Leaves
+
+512x Compressed Leaves	Sand Dust	512x Compressed Leaves
+512x Compressed Leaves	ashes		512x Compressed Leaves	->	Dirt x 9
+512x Compressed Leaves	Sand Dust	512x Compressed Leaves
+```
 
 ## License
 |                         | License name                              | License Documents                              |
