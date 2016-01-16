@@ -6,7 +6,7 @@ Copyright (c) 2015 yumetodo <yume-wikijp@live.jp>
 
 Version: 1.0
 
-Depends: charcoal
+Recomended: charcoal
 https://forum.minetest.net/viewtopic.php?f=11&t=3971
 
 License for code:
@@ -49,18 +49,20 @@ minetest.register_craftitem("woodtodirt:splitted_stick", {
 --
 -- register compblock
 --
-register_compblock("cobble", 4, false, true)
+register_compblock("default:cobble", 4, false, true)
 register_compblock_by_group("leaves", "default:pine_needles", 3, true, false)
 
 --
 -- Cooking recipes
 --
-minetest.register_craft({
-        type = "cooking",
-        output = "woodtodirt:ashes 4",
-        recipe = "charcoal:charcoal_lump",
-        cooktime = 35,
-})
+if minetest.get_modpath("charcoal") then
+	minetest.register_craft({
+	        type = "cooking",
+	        output = "woodtodirt:ashes 4",
+	        recipe = "charcoal:charcoal_lump",
+	        cooktime = 35,
+	})
+end
 minetest.register_craft({
         type = "cooking",
         output = "woodtodirt:ashes 4",

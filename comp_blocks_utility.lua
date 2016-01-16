@@ -127,7 +127,7 @@ register_compblock_by_group("leaves", "default:pine_needles", 4, false, true)
 ]]
 function register_compblock_by_group(group_name, base_node, max_comp_level, is_center_null, do_decompress_flag)
 	if 0 == minetest.get_item_group(base_node, group_name) then
-		print(base_node.." is not related with `group:"..group_name.."`.")
+		print("comp_blocks_utility.lua: In function `register_compblock_by_group`, "..base_node.." is not related with `group:"..group_name.."`.")
 		return
 	end
 	local recipe_def = minetest.registered_nodes[base_node]--recipeデータの取得
