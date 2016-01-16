@@ -14,7 +14,7 @@ License for code:
 @return 生成された名前。
 ]]
 function register_compblock_impl_make_new_description(base_description, is_center_null, comp_level)
-	return is_center_null and 8^comp_level.."Compressed "..base_description or "Compressed "..base_description.." ("..i..")"
+	return is_center_null and 8^comp_level.."Compressed "..base_description or "Compressed "..base_description.." ("..comp_level..")"
 end
 --[[
 @brief is_center_nullによってnode名を作り分ける
@@ -96,14 +96,14 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 			def.tiles[n] = def.tiles[n].."^[colorize:black:"..i*45
 		end
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
-		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
+		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
 		--
 		--previousだから-1する.C++なら(1 == i) ? recipe : nodename + "_" + std::to_string(i - 1)
-		local previous = 1 == i and recipe or register_compblock_impl_make_new_name(group_name, is_center_null, i - 1)
+		local previous = 1 == i and recipe or register_compblock_impl_make_new_name(nodename, is_center_null, i - 1)
 		register_compblock_impl_register_craft(previous, new_nodename, is_center_null, do_decompress_flag)
 	end
 end

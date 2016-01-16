@@ -1,5 +1,5 @@
 ﻿--[[
-woodtodart
+woodtodirt
 ========
 
 Copyright (c) 2015 yumetodo <yume-wikijp@live.jp>
@@ -25,23 +25,23 @@ local modname = "woodtodirt"
 -- New Crafting items
 --
 
-minetest.register_craftitem("woodtodart:ashes", {
+minetest.register_craftitem(":woodtodirt:ashes", {
         description = "ashes",
         inventory_image = "ash.png",
 })
-minetest.register_craftitem("woodtodart:stone_dust", {
+minetest.register_craftitem(":woodtodirt:stone_dust", {
         description = "Stone Dust",
         inventory_image = "stone_dust.png",
 })
-minetest.register_craftitem("woodtodart:sand_dust", {
+minetest.register_craftitem(":woodtodirt:sand_dust", {
         description = "Stone Dust",
         inventory_image = "sand_dust.png",
 })
-minetest.register_craftitem("woodtodart:stone_hummer", {
+minetest.register_craftitem(":woodtodirt:stone_hummer", {
         description = "Stone Hummer",
-        inventory_image = "Stone_Hummer.png",
+        inventory_image = "stone_hummer.png",
 })
-minetest.register_craftitem("woodtodart:splitted_stick", {
+minetest.register_craftitem(":woodtodirt:splitted_stick", {
         description = "splitted stick",
         inventory_image = "splitted_stick.png",
 })
@@ -57,19 +57,19 @@ register_compblock_by_group("leaves", "default:pine_needles", 3, true, false)
 --
 minetest.register_craft({
         type = "cooking",
-        output = "woodtodart:ashes 4",
+        output = "woodtodirt:ashes 4",
         recipe = "charcoal:charcoal_lump",
         cooktime = 35,
 })
 minetest.register_craft({
         type = "cooking",
-        output = "woodtodart:ashes 4",
+        output = "woodtodirt:ashes 4",
         recipe = "default:coal_lump",
         cooktime = 25,
 })
 minetest.register_craft({
         type = "cooking",
-        output = "woodtodart:ashes",
+        output = "woodtodirt:ashes",
         recipe = "group:sapling",
         cooktime = 45,
 })
@@ -137,58 +137,58 @@ comp_blocks:cobble_1
 default:pine_needles
 ]]
 minetest.register_craft({
-	output = "woodtodart:splitted_stick　4",
+	output = "woodtodirt:splitted_stick 4",
 	recipe = {{"default:stick"}}
 })
 minetest.register_craft({
-	output = "woodtodart:stone_hummer",
+	output = "woodtodirt:stone_hummer",
 	recipe = {
 	{"comp_blocks:cobble_1", "comp_blocks:cobble_1", "comp_blocks:cobble_1"},
-	{"comp_blocks:cobble_1", "woodtodart:splitted_stick", "comp_blocks:cobble_1"},
-	{"", "woodtodart:splitted_stick", ""},
+	{"comp_blocks:cobble_1", "woodtodirt:splitted_stick", "comp_blocks:cobble_1"},
+	{"", "woodtodirt:splitted_stick", ""},
 	},
 })
 minetest.register_craft({
-	output = "woodtodart:stone_dust 4",
+	output = "woodtodirt:stone_dust 4",
 	recipe = {
 	{"default:cobble"},
-	{"woodtodart:stone_hummer"},
+	{"woodtodirt:stone_hummer"},
 	},
 })
 minetest.register_craft({
-	output = "woodtodart:sand_dust　4",
+	output = "woodtodirt:sand_dust　4",
 	recipe = {{"default:sand"}}
 })
 minetest.register_craft({
 	output = "default:dirt",
 	recipe = {
-	{"comp_blocks:leaves_64x", "woodtodart:ashes", "comp_blocks:leaves_64x"},
-	{"comp_blocks:leaves_64x", "woodtodart:stone_dust", "comp_blocks:leaves_64x"},
-	{"comp_blocks:leaves_64x", "woodtodart:ashes", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:ashes", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:stone_dust", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:ashes", "comp_blocks:leaves_64x"},
 	},
 })
 minetest.register_craft({
 	output = "default:dirt",
 	recipe = {
-	{"comp_blocks:leaves_64x", "woodtodart:ashes", "comp_blocks:leaves_64x"},
-	{"comp_blocks:leaves_64x", "woodtodart:sand_dust", "comp_blocks:leaves_64x"},
-	{"comp_blocks:leaves_64x", "woodtodart:ashes", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:ashes", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:sand_dust", "comp_blocks:leaves_64x"},
+	{"comp_blocks:leaves_64x", "woodtodirt:ashes", "comp_blocks:leaves_64x"},
 	},
 })
 minetest.register_craft({
 	output = "default:dirt 8",
 	recipe = {
-	{"comp_blocks:leaves_512x", "woodtodart:stone_dust", "comp_blocks:leaves_512x"},
-	{"comp_blocks:leaves_512x", "woodtodart:ashes", "comp_blocks:leaves_512x"},
-	{"comp_blocks:leaves_512x", "woodtodart:stone_dust", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:stone_dust", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:ashes", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:stone_dust", "comp_blocks:leaves_512x"},
 	},
 })
 minetest.register_craft({
 	output = "default:dirt 9",
 	recipe = {
-	{"comp_blocks:leaves_512x", "woodtodart:sand_dust", "comp_blocks:leaves_512x"},
-	{"comp_blocks:leaves_512x", "woodtodart:ashes", "comp_blocks:leaves_512x"},
-	{"comp_blocks:leaves_512x", "woodtodart:sand_dust", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:sand_dust", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:ashes", "comp_blocks:leaves_512x"},
+	{"comp_blocks:leaves_512x", "woodtodirt:sand_dust", "comp_blocks:leaves_512x"},
 	},
 })
 
@@ -202,15 +202,15 @@ if minetest.get_modpath("moreblocks") ~= nil then--moreblocks has Compressed Cob
 		},
 	})
 	minetest.register_craft({
-		output = "woodtodart:sand_dust　4",
+		output = "woodtodirt:sand_dust　4",
 		recipe = {{"default:sand"}}
 	})
 	minetest.register_craft({
-		output = "woodtodart:stone_hummer",
+		output = "woodtodirt:stone_hummer",
 		recipe = {
 		{"moreblocks:cobble_compressed", "moreblocks:cobble_compressed", "moreblocks:cobble_compressed"},
-		{"moreblocks:cobble_compressed", "woodtodart:splitted_stick", "moreblocks:cobble_compressed"},
-		{"", "woodtodart:splitted_stick", ""},
+		{"moreblocks:cobble_compressed", "woodtodirt:splitted_stick", "moreblocks:cobble_compressed"},
+		{"", "woodtodirt:splitted_stick", ""},
 		},
 	})
 end
