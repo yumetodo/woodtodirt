@@ -80,7 +80,7 @@ minetest.register_craft({
 ------------------------------------------
 --------       Craft Recipe       --------
 ------------------------------------------
-Stick　-> splitted stick x 4
+Stick -> splitted stick x 4
 
 Cobblestone	Cobblestone	Cobblestone
 Cobblestone	Cobblestone	Cobblestone	->	Compressed Cobblestone (1)
@@ -156,7 +156,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_craft({
-	output = "woodtodirt:sand_dust　4",
+	output = "woodtodirt:sand_dust 4",
 	recipe = {{"default:sand"}}
 })
 minetest.register_craft({
@@ -192,7 +192,7 @@ minetest.register_craft({
 	},
 })
 
-if minetest.get_modpath("moreblocks") ~= nil then--moreblocks has Compressed Cobblestone
+if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobblestone
 	minetest.register_craft({
 		output = "comp_blocks:cobble_2",
 		recipe = {
@@ -202,7 +202,7 @@ if minetest.get_modpath("moreblocks") ~= nil then--moreblocks has Compressed Cob
 		},
 	})
 	minetest.register_craft({
-		output = "woodtodirt:sand_dust　4",
+		output = "woodtodirt:sand_dust 4",
 		recipe = {{"default:sand"}}
 	})
 	minetest.register_craft({
