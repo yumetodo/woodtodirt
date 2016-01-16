@@ -16,6 +16,20 @@ http://wiki.minetest.com/wiki/Installing_Mods
 ## How to use the mod
 Just install it an everything works.
 
+## Dependent Mods
+none.
+
+## Recommended Mods
+
+### Cooporating Mods
+- [charcoal](https://forum.minetest.net/viewtopic.php?f=11&t=3971)
+- [More Blocks](https://forum.minetest.net/viewtopic.php?t=509)
+
+### for crafting convenient
+- [Craft Guide](https://forum.minetest.net/viewtopic.php?t=2334)
+- [Unified Inventory](https://forum.minetest.net/viewtopic.php?t=3933)
+
+
 ## License
 |                         | License name                              | License Documents                              |
 |-------------------------|-------------------------------------------|------------------------------------------------|
