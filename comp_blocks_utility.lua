@@ -1,7 +1,7 @@
 ﻿--[[
 License for code:
   Copyright (C) 2016 yumetodo <yume-wikijp@live.jp>
-  https://github.com/Nagarei/DxLibEx/
+  https://github.com/yumetodo/woodtodirt
   Distributed under the Boost Software License, Version 1.0.
   (See http://www.boost.org/LICENSE_1_0.txt)
 --]]
