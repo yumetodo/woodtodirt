@@ -37,9 +37,9 @@ minetest.register_craftitem("woodtodirt:sand_dust", {
         description = "Stone Dust",
         inventory_image = "woodtodirt_sand_dust.png",
 })
-minetest.register_craftitem("woodtodirt:stone_hummer", {
+minetest.register_craftitem("woodtodirt:stone_hammer", {
         description = "Stone Hummer",
-        inventory_image = "woodtodirt_stone_hummer.png",
+        inventory_image = "woodtodirt_stone_hammer.png",
 })
 minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
@@ -143,7 +143,7 @@ minetest.register_craft({
 	recipe = {{"default:stick"}}
 })
 minetest.register_craft({
-	output = "woodtodirt:stone_hummer",
+	output = "woodtodirt:stone_hammer",
 	recipe = {
 	{"comp_blocks:cobble_1", "comp_blocks:cobble_1", "comp_blocks:cobble_1"},
 	{"comp_blocks:cobble_1", "woodtodirt:splitted_stick", "comp_blocks:cobble_1"},
@@ -154,7 +154,7 @@ minetest.register_craft({
 	output = "woodtodirt:stone_dust 4",
 	recipe = {
 	{"default:cobble"},
-	{"woodtodirt:stone_hummer"},
+	{"woodtodirt:stone_hammer"},
 	},
 })
 minetest.register_craft({
@@ -208,7 +208,7 @@ if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobbleston
 		recipe = {{"default:sand"}}
 	})
 	minetest.register_craft({
-		output = "woodtodirt:stone_hummer",
+		output = "woodtodirt:stone_hammer",
 		recipe = {
 		{"moreblocks:cobble_compressed", "moreblocks:cobble_compressed", "moreblocks:cobble_compressed"},
 		{"moreblocks:cobble_compressed", "woodtodirt:splitted_stick", "moreblocks:cobble_compressed"},
