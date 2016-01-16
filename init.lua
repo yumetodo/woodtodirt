@@ -42,7 +42,9 @@ minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
         inventory_image = "woodtodirt_splitted_stick.png",
 })
-
+--[[
+2016-01-16 21:10:58: ACTION[ServerThread]: player singleplayer crafts comp_blocks:leaves_64x
+]]
 --
 -- register compblock
 --
@@ -57,20 +59,60 @@ if minetest.get_modpath("charcoal") then
 	        type = "cooking",
 	        output = "woodtodirt:ashes 4",
 	        recipe = "charcoal:charcoal_lump",
-	        cooktime = 35,
+	        cooktime = 25,
 	})
 end
 minetest.register_craft({
         type = "cooking",
         output = "woodtodirt:ashes 4",
         recipe = "default:coal_lump",
-        cooktime = 25,
+        cooktime = 15,
 })
 minetest.register_craft({
         type = "cooking",
         output = "woodtodirt:ashes",
         recipe = "group:sapling",
-        cooktime = 45,
+        cooktime = 30,
+})
+minetest.register_craft({
+        type = "cooking",
+        output = "woodtodirt:ashes",
+        recipe = "comp_blocks:leaves_512x",
+        cooktime = 17,
+})
+minetest.register_craft({
+        type = "cooking",
+        output = "woodtodirt:ashes 8",
+        recipe = "comp_blocks:leaves_4096x",
+        cooktime = 18,
+})
+--
+-- fuel recipes
+--
+minetest.register_craft({
+		type = "fuel",
+		recipe = "woodtodirt:ashes",
+		burntime = 10
+})
+minetest.register_craft({
+		type = "fuel",
+		recipe = "woodtodirt:splitted_stick",
+		burntime = 4
+})
+minetest.register_craft({
+		type = "fuel",
+		recipe = "comp_blocks:leaves_64x",
+		burntime = 2
+})
+minetest.register_craft({
+		type = "fuel",
+		recipe = "comp_blocks:leaves_512x",
+		burntime = 16
+})
+minetest.register_craft({
+		type = "fuel",
+		recipe = "comp_blocks:leaves_4096x",
+		burntime = 128
 })
 
 --
