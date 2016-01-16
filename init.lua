@@ -27,23 +27,23 @@ local modname = "woodtodirt"
 
 minetest.register_craftitem("woodtodirt:ashes", {
         description = "ashes",
-        inventory_image = "ash.png",
+        inventory_image = "woodtodirt_ash.png",
 })
 minetest.register_craftitem("woodtodirt:stone_dust", {
         description = "Stone Dust",
-        inventory_image = "stone_dust.png",
+        inventory_image = "woodtodirt_stone_dust.png",
 })
 minetest.register_craftitem("woodtodirt:sand_dust", {
         description = "Stone Dust",
-        inventory_image = "sand_dust.png",
+        inventory_image = "woodtodirt_sand_dust.png",
 })
 minetest.register_craftitem("woodtodirt:stone_hummer", {
         description = "Stone Hummer",
-        inventory_image = "stone_hummer.png",
+        inventory_image = "woodtodirt_stone_hummer.png",
 })
 minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
-        inventory_image = "splitted_stick.png",
+        inventory_image = "woodtodirt_splitted_stick.png",
 })
 
 --
