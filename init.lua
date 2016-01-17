@@ -60,8 +60,8 @@ minetest.register_tool("woodtodirt:stone_hammer", {
 --
 -- register compblock
 --
-register_compblock("default:cobble", 4, false, true, nil)
-register_compblock_by_group("leaves", "default:pine_needles", 3, true, false, nil)
+register_compblock("default:cobble", 4, false, true, {})
+register_compblock_by_group("leaves", "default:pine_needles", 3, true, false, {})
 
 --
 -- Cooking recipes

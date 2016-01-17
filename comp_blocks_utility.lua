@@ -62,6 +62,35 @@ function register_compblock_impl_register_craft(pre_nodename, new_nodename, is_c
 		})
 	end--do_decompress_flag
 end
+function register_compblock_impl_node_group_editer_withoutnode_hardness(recipe_obj, group)
+	if recipe_obj and recipe_obj.groups then
+		if group then
+			local inheritance_groups = {
+			    "crumbly",
+			    "cracky",
+			    "snappy",
+			    "choppy",
+			    "fleshy",
+			    "explody",
+			    "oddly_breakable_by_hand"
+			}
+			local new_groups = {}
+			for _, g in pairs(inheritance_groups) do
+				if recipe_obj.groups[g] then
+					new_groups[g] = recipe_obj.groups[g]
+				end
+			end
+			for k, v in pairs(group) do
+			    new_groups[k] = v
+			end
+			return new_groups
+		else
+			return recipe_obj.groups
+		end
+	else
+		return {}
+	end
+end
 --[[
 @brief 圧縮部ロック系を登録する
 @param recipe 元にするブロック名。"default:acacia_tree"みたいに
@@ -93,13 +122,13 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		-- node登録
 		--
 		local def = table.copy(recipe_def)--recipeデータをコピー、書き換えていく
-		for n, tile in ipairs(def.tiles) do
+		for n, tile in pairs(def.tiles) do
 			def.tiles[n] = def.tiles[n].."^[colorize:black:"..i*45
 		end
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
-		if group then def.groups = group end--comp_blocksはグループから外す
+		if group then def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group) end--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
@@ -147,7 +176,7 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 		def.description = register_compblock_impl_make_new_description(group_name, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
 		def.drop = new_nodename
-		if group then def.groups = group end--comp_blocksはグループから外す
+		if group then def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group) end--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
