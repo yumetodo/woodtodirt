@@ -62,6 +62,12 @@ function register_compblock_impl_register_craft(pre_nodename, new_nodename, is_c
 		})
 	end--do_decompress_flag
 end
+--[[
+@brief nodeのgroupsを編集する
+@param recipe_obj minetest.registered_nodes[recipe]で得られる物
+@param table型の追記するgroup
+@return recipe_objかrecipe_obj.groupsがnilなら空のtable、groupがnilならrecipe_obj.groups、それ以外はnodeのダメージ計算関連のみ継承、第二引数と連結したtable
+]]
 function register_compblock_impl_node_group_editer_withoutnode_hardness(recipe_obj, group)
 	if recipe_obj and recipe_obj.groups then
 		if group then
@@ -97,7 +103,7 @@ end
 @param max_comp_level 圧縮のレベル。1以上。
 @param is_center_null 中央空白の8個圧縮のレシピにするか(true)否か(false)
 @param do_decompress_flag trueで解凍レシピ追加、falseで追加しない
-@param group minetest.register_nodeに指定するgroupのtable。{}を推奨
+@param group minetest.register_nodeに指定するgroupのtable。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
 @detail
 
 
@@ -106,7 +112,7 @@ end
 | description    | [8^i] Compressed [元アイテムの説明]        | Compressed [元アイテムの説明]　(i)      |
 | nodename       | :comp_blocks:[元アイテムの名前]_[8^i]x     | :comp_blocks:[元アイテムの名前]_i      |
 @code
-register_compblock("default:acacia_tree", 4, false, true)
+register_compblock("default:acacia_tree", 4, false, true, {})
 @endcode
 ]]
 function register_compblock(recipe, max_comp_level, is_center_null, do_decompress_flag, group)
@@ -122,13 +128,13 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		-- node登録
 		--
 		local def = table.copy(recipe_def)--recipeデータをコピー、書き換えていく
-		for n, tile in pairs(def.tiles) do
+		for n, tile in ipairs(def.tiles) do
 			def.tiles[n] = def.tiles[n].."^[colorize:black:"..i*45
 		end
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
-		if group then def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group) end--comp_blocksはグループから外す
+		def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group)--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
@@ -145,6 +151,7 @@ end
 @param max_comp_level 圧縮のレベル。1以上。
 @param is_center_null 中央空白の8個圧縮のレシピにするか(true)否か(false)
 @param do_decompress_flag trueで解凍レシピ追加、falseで追加しない
+@param group minetest.register_nodeに指定するgroupのtable。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
 @detail
 
 
@@ -153,7 +160,7 @@ end
 | description    | [8^i] Compressed [group名]        | Compressed [group名]　(i)      |
 | nodename       | :comp_blocks:[group名]_[8^i]x     | :comp_blocks:[group名]_i      |
 @code
-register_compblock_by_group("leaves", "default:pine_needles", 4, false, true)
+register_compblock_by_group("leaves", "default:pine_needles", 4, false, true, {})
 @endcode
 ]]
 function register_compblock_by_group(group_name, base_node, max_comp_level, is_center_null, do_decompress_flag, group)
@@ -176,7 +183,7 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 		def.description = register_compblock_impl_make_new_description(group_name, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
 		def.drop = new_nodename
-		if group then def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group) end--comp_blocksはグループから外す
+		def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group)--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
