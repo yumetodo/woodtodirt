@@ -162,12 +162,14 @@ if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobbleston
 	})
 end
 
---クラフト時の動作を登録
+--
+--  クラフト時の動作を登録
+--
 minetest.register_on_craft(function(_, _, old_craft_grid, craft_inv)
 	--材料からハンマーを探す
 	for i, item in ipairs(old_craft_grid) do
 		if item:get_name() == "woodtodirt:stone_hammer" then
-			item:add_wear(65535 / 10)--ハンマーに1割のダメージを追加する
+			item:add_wear(65535 / 2)--ハンマーに5割のダメージを追加する
 			craft_inv:set_stack("craft", i, item)
 		end
 	end
