@@ -92,7 +92,7 @@ minetest.register_craft({
         recipe = "default:coal_lump",
         cooktime = 10,
 })
-minetest.register_craft({
+minetest.register_craft({--mesecon disable this recipe to make "glue".
         type = "cooking",
         output = "woodtodirt:ashes",
         recipe = "group:sapling",
@@ -101,12 +101,18 @@ minetest.register_craft({
 minetest.register_craft({
         type = "cooking",
         output = "woodtodirt:ashes",
+        recipe = "comp_blocks:leaves_64x",
+        cooktime = 11,
+})
+minetest.register_craft({
+        type = "cooking",
+        output = "woodtodirt:ashes 8",
         recipe = "comp_blocks:leaves_512x",
         cooktime = 13,
 })
 minetest.register_craft({
         type = "cooking",
-        output = "woodtodirt:ashes 8",
+        output = "woodtodirt:ashes 64",
         recipe = "comp_blocks:leaves_4096x",
         cooktime = 15,
 })
