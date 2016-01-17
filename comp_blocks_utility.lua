@@ -99,7 +99,7 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
-		def.groups = group--comp_blocksはグループから外す
+		if group then def.groups = group end--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
@@ -136,7 +136,6 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 	if not recipe_def then
 		return
 	end
-
 	for i = 1 ,4 do--Cならfor(int i = 1, i < =4; ++i)
 		--
 		-- node登録
@@ -148,7 +147,7 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 		def.description = register_compblock_impl_make_new_description(group_name, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
 		def.drop = new_nodename
-		def.groups = group--comp_blocksはグループから外す
+		if group then def.groups = group end--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録

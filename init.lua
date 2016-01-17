@@ -60,8 +60,8 @@ minetest.register_tool("woodtodirt:stone_hammer", {
 --
 -- register compblock
 --
-register_compblock("default:cobble", 4, false, true, {})
-register_compblock_by_group("leaves", "default:pine_needles", 3, true, false, {})
+register_compblock("default:cobble", 4, false, true, nil)
+register_compblock_by_group("leaves", "default:pine_needles", 3, true, false, nil)
 
 --
 -- Cooking recipes
@@ -191,6 +191,13 @@ minetest.register_craft({
 	output = "woodtodirt:stone_dust 4",
 	recipe = {
 	{"default:cobble"},
+	{"woodtodirt:stone_hammer"},
+	},
+})
+minetest.register_craft({
+	output = "woodtodirt:sand_dust 16",
+	recipe = {
+	{"default:sandstone"},
 	{"woodtodirt:stone_hammer"},
 	},
 })
