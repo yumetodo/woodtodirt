@@ -34,9 +34,12 @@ minetest.register_craftitem("woodtodirt:sand_dust", {
         description = "Stone Dust",
         inventory_image = "woodtodirt_sand_dust.png",
 })
-minetest.register_craftitem("woodtodirt:stone_hammer", {
+minetest.register_tool("woodtodirt:stone_hammer", {
         description = "Stone Hummer",
         inventory_image = "woodtodirt_stone_hammer.png",
+        on_use = function()
+            return
+        end,
 })
 minetest.register_craftitem("woodtodirt:splitted_stick", {
         description = "splitted stick",
@@ -200,3 +203,16 @@ if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobbleston
 		},
 	})
 end
+
+--
+--  クラフト時の動作を登録
+--
+minetest.register_on_craft(function(_, _, old_craft_grid, craft_inv)
+	--材料からハンマーを探す
+	for i, item in ipairs(old_craft_grid) do
+		if item:get_name() == "woodtodirt:stone_hammer" then
+			item:add_wear(65535 / 2)--ハンマーに5割のダメージを追加する
+			craft_inv:set_stack("craft", i, item)
+		end
+	end
+end)
