@@ -70,7 +70,7 @@ end
 ]]
 function register_compblock_impl_node_group_editer_withoutnode_hardness(recipe_obj, group)
 	if recipe_obj and recipe_obj.groups then
-		if group then
+		if group and type(group)=="table" then
 			local inheritance_groups = {
 			    "crumbly",
 			    "cracky",
@@ -103,7 +103,7 @@ end
 @param max_comp_level 圧縮のレベル。1以上。
 @param is_center_null 中央空白の8個圧縮のレシピにするか(true)否か(false)
 @param do_decompress_flag trueで解凍レシピ追加、falseで追加しない
-@param group minetest.register_nodeに指定するgroupのtable。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
+@param group minetest.register_nodeに指定するgroupのtable(table型)。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
 @detail
 
 
@@ -151,7 +151,7 @@ end
 @param max_comp_level 圧縮のレベル。1以上。
 @param is_center_null 中央空白の8個圧縮のレシピにするか(true)否か(false)
 @param do_decompress_flag trueで解凍レシピ追加、falseで追加しない
-@param group minetest.register_nodeに指定するgroupのtable。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
+@param group minetest.register_nodeに指定するgroupのtable(table型)。nilで元アイテムのgroupsを継承、その他はダメージ計算関連groupsのみ継承。{}を推奨
 @detail
 
 

@@ -1,8 +1,10 @@
 # woodtodirt Mod for Mine Test 0.4.13
 
 ## Introduction
-This mod add few compressed block and few tools and few item to make dirt.
-Main resorces to make dirt is "leaves".
+This mod add few compressed block and few tools and few item to make **dirt**.
+Main resorces to make dirt is **leaves**.
+
+We also add **Charcoal**
 
 ## How to install
 Unzip the archive an place it in ``minetest-base-directory/mods/minetest/``
@@ -22,19 +24,28 @@ none.
 ## Recommended Mods
 
 ### Cooporating Mods
-- [charcoal](https://forum.minetest.net/viewtopic.php?f=11&t=3971)
 - [More Blocks](https://forum.minetest.net/viewtopic.php?t=509)
 
 ### for crafting convenient
 - [Craft Guide](https://forum.minetest.net/viewtopic.php?t=2334)
 - [Unified Inventory](https://forum.minetest.net/viewtopic.php?t=3933)
 
-## Minimal Craft Recipe
+## Conflict Mods
+- [charcoal](https://forum.minetest.net/viewtopic.php?f=11&t=3971)
+woodtodirt also has charcoal, so that charcoal mod is not needed.
+You can convert woodtodirt's charcoal and charcoal's charcoal each other by craft.
+
+- []
+
+
+## Minimal Craft, Cooking and Fuel Recipe
 
 if you want to know everthing, watch ``init.lua`` or Use Craft Guide.
 
+### Craft
+
 ```
-Stick -> splitted stick x 4
+group:stick -> splitted stick x 4
 
 Cobblestone	Cobblestone	Cobblestone
 Cobblestone	Cobblestone	Cobblestone	->	Compressed Cobblestone (1)
@@ -46,8 +57,13 @@ Compressed Cobblestone (1)	Compressed Cobblestone (1)	Compressed Cobblestone (1)
 Compressed Cobblestone (1)	splitted stick				Compressed Cobblestone (1)	->	StoneHummer
 							splitted stick
 
+Compressed Cobblestone (1)	Compressed Cobblestone (1)
+Compressed Cobblestone (1)	Compressed Cobblestone (1)	splitted stick	->	StoneHummer
+Compressed Cobblestone (1)	Compressed Cobblestone (1)
+
 Cobblestone
 StoneHummer	->	Cobblestone Dust x 4
+* StoneHummer can use 2 times.
 
 Sand	->	Sand Dust x 4
 
@@ -78,7 +94,44 @@ group:Leaves	group:Leaves	group:Leaves
 512x Compressed Leaves	Sand Dust	512x Compressed Leaves
 512x Compressed Leaves	ashes		512x Compressed Leaves	->	Dirt x 9
 512x Compressed Leaves	Sand Dust	512x Compressed Leaves
+
+Ashes
+splitted stick	-> Torch
+
+Charcoal
+group:stick	-> Torch x 4
 ```
+
+### Cooking
+
+```
+group:tree	-- 38 sec. -->	Charcoal
+
+Coal Lump	-- 10 sec. -->	Ashes x 4
+
+Charcoal	-- 10 sec. -->	Ashes x 4
+
+group:sapling	-- 25 sec. -->	Ashes
+*mesecon disable this recipe to make "glue".
+
+512x Compressed Leaves	-- 11 sec. -->	Ashes
+
+512x Compressed Leaves	-- 13 sec. -->	Ashes x 8
+
+4096x Compressed Leaves	-- 15 sec. -->	Ashes x 64
+
+```
+
+### Fuel
+
+| item name               | burn time(sec.) |
+|-------------------------|------------------|
+| Ash                     | 10               |
+| splitted stick          | 4                |
+| 64x Compressed Leaves   | 2                |
+| 512x Compressed Leaves  | 16               |
+| 4096x Compressed Leaves | 128              |
+| Charcoal                | 40               |
 
 ## License
 |                         | License name                              | License Documents                              |
