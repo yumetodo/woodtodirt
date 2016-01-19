@@ -31,7 +31,7 @@ minetest.register_craftitem("woodtodirt:stone_dust", {
         inventory_image = "woodtodirt_stone_dust.png",
 })
 minetest.register_craftitem("woodtodirt:sand_dust", {
-        description = "Stone Dust",
+        description = "Sand Dust",
         inventory_image = "woodtodirt_sand_dust.png",
 })
 minetest.register_craftitem("woodtodirt:splitted_stick", {
