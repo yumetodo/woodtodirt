@@ -248,10 +248,6 @@ if minetest.get_modpath("moreblocks") then--moreblocks has Compressed Cobbleston
 		},
 	})
 	minetest.register_craft({
-		output = "woodtodirt:sand_dust 4",
-		recipe = {{"default:sand"}}
-	})
-	minetest.register_craft({
 		output = "woodtodirt:stone_hammer",
 		recipe = {
 		{"moreblocks:cobble_compressed", "moreblocks:cobble_compressed", "moreblocks:cobble_compressed"},
