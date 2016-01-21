@@ -68,7 +68,7 @@ end
 @param table型の追記するgroup
 @return recipe_objかrecipe_obj.groupsがnilなら空のtable、groupがnilならrecipe_obj.groups、それ以外はnodeのダメージ計算関連のみ継承、第二引数と連結したtable
 ]]
-function register_compblock_impl_node_group_editer_withoutnode_hardness(recipe_obj, group)
+function register_compblock_impl_node_group_editer_without_node_hardness(recipe_obj, group)
 	if recipe_obj and recipe_obj.groups then
 		if group and type(group)=="table" then
 			local inheritance_groups = {
@@ -134,7 +134,7 @@ function register_compblock(recipe, max_comp_level, is_center_null, do_decompres
 		def.description = register_compblock_impl_make_new_description(def.description, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(nodename, is_center_null, i)
 		def.drop = new_nodename
-		def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group)--comp_blocksはグループから外す
+		def.groups = register_compblock_impl_node_group_editer_without_node_hardness(def, group)--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
@@ -183,7 +183,7 @@ function register_compblock_by_group(group_name, base_node, max_comp_level, is_c
 		def.description = register_compblock_impl_make_new_description(group_name, is_center_null, i)
 		local new_nodename = register_compblock_impl_make_new_name(group_name, is_center_null, i)
 		def.drop = new_nodename
-		def.groups = register_compblock_impl_node_group_editer_withoutnode_hardness(def, group)--comp_blocksはグループから外す
+		def.groups = register_compblock_impl_node_group_editer_without_node_hardness(def, group)--comp_blocksはグループから外す
 		minetest.register_node(":"..new_nodename, def)--いじり終わったらnode登録
 		--
 		-- Craft Recipe登録
